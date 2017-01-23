@@ -99,4 +99,18 @@ describe('TodoDataService', () => {
     }));
 
   });
+
+  describe('#getCompleted', () => {
+    it('should return an empty array by default', inject([TodoDataService], (service: TodoDataService) => {
+      expect(service.getCompleted()).toEqual([]);
+    }));
+
+    it('should return completed todos', inject([TodoDataService], (service: TodoDataService) => {
+      let todo1 = new Todo({title: 'Hello 1', complete: false});
+      let todo2 = new Todo({title: 'Hello 2', complete: true});
+      service.addTodo(todo1);
+      service.addTodo(todo2);
+      expect(service.getCompleted()).toEqual([todo2]);
+    }));
+  });
 });
