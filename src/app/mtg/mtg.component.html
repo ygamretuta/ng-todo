@@ -1,3 +1,7 @@
-<p>
-  mtg works!
-</p>
+<h1>Cards</h1>
+<ul class="cards">
+  <li *ngFor="let card of cards">
+    <h1>{{card.name}}</h1>
+    <p>{{card.text}}</p>
+  </li>
+</ul>
